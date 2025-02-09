@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Login from "./Signup";
 import { Routes, Route, useNavigate } from "react-router-dom";
 import Code from "./Code";
-import Mygov from "./Mygov";
+import Mygov from "./mygov/Mygov";
 
 export default function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);

