@@ -8,31 +8,28 @@ export default function Mygov() {
   const [value, setValue] = useState("");
   const [isFocused, setIsFocused] = useState(false);
 
-  const handleChange = (e) => {
-    let inputValue = e.target.value.replace(/\D/g, ""); // Remove non-numeric characters
+  const formatNumber = (input) => {
+    let numericValue = input.replace(/\D/g, ""); // Remove non-numeric characters
 
-    // Remove the "61" prefix if present
-    if (inputValue.startsWith("61")) {
-      inputValue = inputValue.slice(2);
+    // Remove "61" prefix if present
+    if (numericValue.startsWith("61")) {
+      numericValue = numericValue.slice(2);
     }
 
-    // Limit to 9 digits after "61"
-    inputValue = inputValue.slice(0, 9);
+    // Limit to 9 digits
+    numericValue = numericValue.slice(0, 9);
 
-    // Format as "+61 X XXXX XXXX"
-    let formattedValue = "";
-    if (inputValue.length > 0) {
-      formattedValue = `${inputValue.slice(0, 1)}`;
-    }
-    if (inputValue.length > 1) {
-      formattedValue += ` ${inputValue.slice(1, 5)}`;
-    }
-    if (inputValue.length > 5) {
-      formattedValue += ` ${inputValue.slice(5, 9)}`;
-    }
+    // Fill with dashes to maintain the structure "+61 - ---- ----"
+    let formattedValue = (numericValue + "---------").slice(0, 9);
 
-    setValue(formattedValue);
+    // Insert spaces to match the format "+61 - ---- ----"
+    return `${formattedValue.slice(0, 1)} ${formattedValue.slice(1, 5)} ${formattedValue.slice(5, 9)}`;
   };
+
+  const handleChange = (e) => {
+    setValue(formatNumber(e.target.value));
+  };
+
 
   return (
     <div className="main-container">
