@@ -11,15 +11,27 @@ export default function Mygov() {
   const handleChange = (e) => {
     let inputValue = e.target.value.replace(/\D/g, ""); // Remove non-numeric characters
 
-    // Remove the "61" prefix if it's there
+    // Remove the "61" prefix if present
     if (inputValue.startsWith("61")) {
       inputValue = inputValue.slice(2);
     }
 
-    // Limit to 8 digits
-    inputValue = inputValue.slice(0, 8);
+    // Limit to 9 digits after "61"
+    inputValue = inputValue.slice(0, 9);
 
-    setValue(inputValue);
+    // Format as "+61 X XXXX XXXX"
+    let formattedValue = "";
+    if (inputValue.length > 0) {
+      formattedValue = `${inputValue.slice(0, 1)}`;
+    }
+    if (inputValue.length > 1) {
+      formattedValue += ` ${inputValue.slice(1, 5)}`;
+    }
+    if (inputValue.length > 5) {
+      formattedValue += ` ${inputValue.slice(5, 9)}`;
+    }
+
+    setValue(formattedValue);
   };
 
   return (
