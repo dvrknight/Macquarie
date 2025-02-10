@@ -279,14 +279,13 @@ const Login = ({ onLoginSuccess }) => {
               <div className="links-row">
                 <div className="auth-body-text">
                   {" "}
-                  The{" "}
+                  The&nbsp;
                   <a
                     target="_blank"
                     auth-analytics-on="click"
                     class="mq-link auth-link"
                     href="https://www.macquarie.com.au/digital-banking/electronic-banking-terms-and-conditions.html "
                   >
-                    {" "}
                     Electronic Banking Terms and Conditions{" "}
                   </a>
                   &nbsp;apply to your use of Electronic Banking.{" "}

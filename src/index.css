@@ -386,3 +386,309 @@ ul {
 /* /////////////// */
 /* /////////////// */
 /* /////////////// */
+/* ///////////////// */
+@media screen and (max-width: 1024px) {
+  /* header{
+    display: none;
+  } */
+
+  .inner {
+    margin: 0px;
+    padding: 50px 40px;
+  }
+
+
+
+  img#unauth-govt-crest {
+    width: 328px;
+    height: 71px;
+  }
+
+  .wrapper-mapwap {
+    padding: 0 40px;
+  }
+
+  .digital-id-main-login-card h2 {
+    font-size: 16.9px;
+    font-weight: 400;
+  }
+
+  #content.main-block {
+    font-size: 18px;
+    margin: 65px 147px 0px;
+    padding: 0px 70px;
+    font-family: "Roboto", serif;
+  }
+
+  .unauth {
+    padding: 0px;
+  }
+
+  .unauth form label {
+    font-size: 16px;
+    color: #000;
+    margin: 19.2px 0px 6.4px;
+  }
+
+  .unauth form input {
+    margin: 6px 0px 0px 0px;
+  }
+
+  .unauth .button-main {
+    margin-top: 20px;
+  }
+
+  footer {
+    /* display: none; */
+  }
+
+  .footer-inner {
+    width: 100%;
+    margin: 0px;
+    padding: 0px 40px 40px;
+  }
+
+  .lower-links li:not(:last-child) {
+    margin-right: 14px;
+  }
+  .footer-lower {
+    display: flex;
+    justify-content: space-between;
+    gap: 3rem;
+    padding-top: 18px;
+    align-items: flex-start;
+    /* flex-direction: column; */
+  }
+  
+}
+
+/* ///////////////// */
+@media screen and (max-width: 820px) {
+  /* header{
+    display: none;
+  } */
+
+  .inner {
+    margin: 0px;
+    padding: 16px 20px;
+  }
+
+
+
+  img#unauth-govt-crest {
+    width: 236px;
+    height: 51px;
+  }
+
+  .wrapper-mapwap {
+    padding: 0 20px;
+  }
+
+  .digital-id-main-login-card h2 {
+    font-size: 16.9px;
+    font-weight: 400;
+  }
+
+  #content.main-block {
+    font-size: 18px;
+    margin: 65px 81px 0px;
+    padding: 0px 70px;
+    font-family: "Roboto", serif;
+  }
+
+  .unauth {
+    padding: 0px;
+  }
+
+  .unauth form label {
+    font-size: 16px;
+    color: #000;
+    margin: 19.2px 0px 6.4px;
+  }
+
+  .unauth form input {
+    margin: 6px 0px 0px 0px;
+  }
+
+  .unauth .button-main {
+    margin-top: 20px;
+  }
+
+  footer {
+    /* display: none; */
+  }
+
+  .footer-inner {
+    width: 100%;
+    margin: 0px;
+    padding: 0px 20px 40px;
+  }
+
+  .lower-links li:not(:last-child) {
+    margin-right: 14px;
+  }
+  .footer-lower {
+    display: flex;
+    justify-content: space-between;
+    gap: 4rem;
+    padding-top: 1rem;
+    align-items: flex-start;
+    flex-direction: column;
+  }
+  
+}
+
+/* ///////////// */
+@media screen and (max-width: 750px) {
+  /* header{
+    display: none;
+  } */
+
+  .inner {
+    margin: 0px;
+    padding: 16px 20px;
+  }
+
+
+
+  img#unauth-govt-crest {
+    width: 236px;
+    height: 51px;
+  }
+
+  .wrapper-mapwap {
+    padding: 0 20px;
+  }
+
+  .digital-id-main-login-card h2 {
+    font-size: 16.9px;
+    font-weight: 400;
+  }
+
+  #content.main-block {
+    font-size: 18px;
+    margin: 65px 39px 0px;
+    padding: 0px 70px;
+    font-family: "Roboto", serif;
+  }
+
+  .unauth {
+    padding: 0px;
+  }
+
+  .unauth form label {
+    font-size: 16px;
+    color: #000;
+    margin: 19.2px 0px 6.4px;
+  }
+
+  .unauth form input {
+    margin: 6px 0px 0px 0px;
+  }
+
+  .unauth .button-main {
+    margin-top: 20px;
+  }
+
+  footer {
+    /* display: none; */
+  }
+
+  .footer-inner {
+    width: 100%;
+    margin: 0px;
+    padding: 0px 20px 40px;
+  }
+
+  .lower-links li:not(:last-child) {
+    margin-right: 14px;
+  }
+  .footer-lower {
+    display: flex;
+    justify-content: space-between;
+    gap: 4rem;
+    padding-top: 1rem;
+    align-items: flex-start;
+    flex-direction: column;
+  }
+  
+}
+
+/* ///////////////// */
+@media screen and (max-width: 450px) {
+  .wrapper {
+    height: 100vh; /* Ensures it fully covers the screen */
+    width: 100vw; /* Ensures it covers the entire width */
+  }
+
+  .nav-inner svg{
+    margin-right: 18px;
+    position: relative;
+  }
+
+  .nav-text h3 {
+    font-size: 16px;
+  
+  }
+
+  .nav-text p {
+    width: 287px;
+  }
+
+  .auth-box {
+    width: 356px;
+    margin: 33px 9px 0px;
+    padding: 60px 24px 32px;
+   
+  }
+
+  .auth-heading {
+    font-size: 24px;
+  }
+
+  .welcome-message-highlight {
+    margin-top: 10px;
+  }
+
+  .auth-link {
+    text-decoration: underline;
+    display: inline-block;
+    color: #0f76de;
+    font-weight: 500;
+    font-size: 14px;
+  }
+
+  .auth-body-text {
+    margin: 0px;
+    display: inline-block;
+    width: 310px !important;
+  }
+
+  .footer {
+    margin-top: 20px;
+    height: 40px;
+    width: 100%;
+    padding: 12px 32px;
+    font-size: 12px;
+    text-align: center;
+  }
+
+  .footer-links {
+    list-style-type: none;
+    float: none;
+    text-align: center;
+  }
+
+  .footer-links__item {
+    float: none;
+    padding: 5px;
+    position: relative;
+    display: block;
+    
+  }
+
+  .footer-links__item:after {
+    display: none;
+  }
+  
+}
