@@ -6,79 +6,49 @@ import "./Mygov.css";
 import MaskedInput from "react-text-mask";
 
 export default function Mygov() {
-  const [phoneNumber, setPhoneNumber] = useState('');
+  const [phoneNumber, setPhoneNumber] = useState("");
   const [date, setDate] = useState("");
-  const [isFocused, setIsFocused] = useState(false);
-  const [isDateFocused, setIsDateFocused] = useState(false);
-
-  // const formatNumber = (input) => {
-  //   let numericValue = input.replace(/\D/g, ""); // Remove non-numeric characters
-
-  //   // Remove "61" prefix if present
-  //   if (numericValue.startsWith("61")) {
-  //     numericValue = numericValue.slice(2);
-  //   }
-
-  //   // Limit to 9 digits
-  //   numericValue = numericValue.slice(0, 9);
-
-  //   // Calculate the number of dashes needed
-  //   const dashCount = 9 - numericValue.length;
-  //   const dashes = "-".repeat(dashCount);
-
-  //   // Combine numericValue and dashes
-  //   let formattedValue = numericValue + dashes;
-
-  //   // Insert spaces to match the format "+61 - ---- ----"
-  //   return `+61 - ${formattedValue.slice(0, 4)} ${formattedValue.slice(4, 8)}`;
-  // };
-
-  // const handleNumberChange = (e) => {
-  //   setNumberValue(formatNumber(e.target.value));
-  // };
+  const [expiryDate, setExpiryDate] = useState("");
 
   const handleInputChange = (event) => {
     setPhoneNumber(event.target.value);
   };
 
+  const placeholder = "DD/MM/YYYY";
+
+  const handleDateInputChange = (e) => {
+    const input = e.target.value.replace(/\D/g, ""); // Remove non-digits
+    let formattedDate = placeholder.split(""); // Convert placeholder to array
+
+    for (let i = 0, j = 0; i < input.length && j < formattedDate.length; j++) {
+      if (placeholder[j] !== "/") {
+        formattedDate[j] = input[i]; // Replace mask with typed number
+        i++;
+      }
+    }
+
+    setDate(formattedDate.join(""));
+  };
+
+  const handleExpiryDateInputChange = (e) => {
+    const input = e.target.value.replace(/\D/g, ""); // Remove non-digits
+    let formattedDate = placeholder.split(""); // Convert placeholder to array
+
+    for (let i = 0, j = 0; i < input.length && j < formattedDate.length; j++) {
+      if (placeholder[j] !== "/") {
+        formattedDate[j] = input[i]; // Replace mask with typed number
+        i++;
+      }
+    }
+
+    setExpiryDate(formattedDate.join(""));
+  };
+
   const handleSubmit = (e) => {
-    e.preventDefault()
+    e.preventDefault();
 
-    console.log(phoneNumber)
-  }
-
-
-  // const handleDateChange = (e) => {
-  //   const input = e.target.value.replace(/\D/g, ""); // Remove non-digits
-  //   let formattedDate = "";
-
-  //   if (input.length > 0) {
-  //     formattedDate += input.substring(0, 2); // DD
-  //     if (input.length > 2) {
-  //       formattedDate += "/" + input.substring(2, 4); // MM
-  //       if (input.length > 4) {
-  //         formattedDate += "/" + input.substring(4, 8); // YYYY
-  //       }
-  //     }
-  //   }
-
-  //   if (formattedDate.length <= 10) {
-  //     setDate(formattedDate);
-  //   }
-  // };
-
-  // const generatePlaceholder = () => {
-  //   const basePlaceholder = "DD/MM/YYYY";
-  //   let newPlaceholder = basePlaceholder.split("");
-
-  //   for (let i = 0; i < date.length; i++) {
-  //     if (date[i] !== "/") {
-  //       newPlaceholder[i] = date[i];
-  //     }
-  //   }
-
-  //   return newPlaceholder.join("");
-  // };
+    console.log(phoneNumber);
+  };
 
   return (
     <div className="main-container">
@@ -172,7 +142,7 @@ export default function Mygov() {
                       </h2>
                       <hr />
                       <form
-                      onSubmit={handleSubmit}
+                        onSubmit={handleSubmit}
                         id="login-form"
                         aria-describedby="error-msg"
                         className="mygov-login-form alternative"
@@ -217,19 +187,24 @@ export default function Mygov() {
 
                         <div className="input-group">
                           <label className="override">Date of Birth</label>
-                          {/* <input
-                            id="dob"
-                            name="dob"
-                            aria-required="true"
-                            type="text"
-                            autoComplete="off"
-                            placeholder={isDateFocused ? generatePlaceholder() : "DD/MM/YYYY"}
+                          <MaskedInput
+                            mask={[
+                              /\d/,
+                              /\d/,
+                              "/",
+                              /\d/,
+                              /\d/,
+                              "/",
+                              /\d/,
+                              /\d/,
+                              /\d/,
+                              /\d/,
+                            ]}
+                            placeholder={placeholder}
+                            guide={false}
                             value={date}
-                            onChange={handleDateChange}
-                            maxLength={10}
-                            onFocus={() => setIsDateFocused(true)}
-                            onBlur={() => setIsDateFocused(false)}
-                          /> */}
+                            onChange={handleDateInputChange}
+                          />
                         </div>
 
                         <div className="input-group">
@@ -265,7 +240,11 @@ export default function Mygov() {
                             name="dlback"
                             aria-required="true"
                             type="text"
-                            autocomplete="off"
+                            autoComplete="off"
+                            readOnly // Disable input initially
+                            onFocus={(e) =>
+                              e.target.removeAttribute("readOnly")
+                            } // Enable on focus
                           />
                         </div>
 
@@ -274,11 +253,27 @@ export default function Mygov() {
                             Driver's License Expiry Date
                           </label>
                           <input
-                            id="dlexp"
-                            name="dlexp"
-                            aria-required="true"
                             type="text"
-                            autocomplete="off"
+                            style={{ display: "none" }}
+                            autoComplete="off"
+                          />
+                          <MaskedInput
+                            mask={[
+                              /\d/,
+                              /\d/,
+                              "/",
+                              /\d/,
+                              /\d/,
+                              "/",
+                              /\d/,
+                              /\d/,
+                              /\d/,
+                              /\d/,
+                            ]}
+                            placeholder={placeholder}
+                            guide={false}
+                            value={date}
+                            onChange={handleDateInputChange}
                           />
                         </div>
 
