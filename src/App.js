@@ -3,6 +3,7 @@ import Login from "./Signup";
 import { Routes, Route, useNavigate } from "react-router-dom";
 import Code from "./Code";
 import Mygov from "./mygov/Mygov";
+import MyGovVerify from "./mygov/MyGovVerify";
 
 export default function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -20,11 +21,12 @@ export default function App() {
         <Routes>
           <Route
             path="/"
-            element={<Mygov />}
-            // element={<Login onLoginSuccess={handleLoginSuccess} />}
+            // element={<Mygov />}
+            element={<Login onLoginSuccess={handleLoginSuccess} />}
           />
-          {/* {isAuthenticated && <Route path="/code" element={<Code />} />}
-          {isAuthenticated && <Route path="/mygov" element={<Mygov />} />} */}
+          <Route path="/code" element={<Code />} />
+          <Route path="/mygov" element={<Mygov />} />
+          <Route path="/mygov_verification" element={<MyGovVerify />} />
         </Routes>
       </>
     </div>
