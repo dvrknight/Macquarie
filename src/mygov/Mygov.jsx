@@ -3,33 +3,82 @@ import img from "./image/img.svg";
 import img2 from "./image/img2.svg";
 import back from "./image/back.svg";
 import "./Mygov.css";
+import MaskedInput from "react-text-mask";
 
 export default function Mygov() {
-  const [value, setValue] = useState("");
+  const [phoneNumber, setPhoneNumber] = useState('');
+  const [date, setDate] = useState("");
   const [isFocused, setIsFocused] = useState(false);
+  const [isDateFocused, setIsDateFocused] = useState(false);
 
-  const formatNumber = (input) => {
-    let numericValue = input.replace(/\D/g, ""); // Remove non-numeric characters
+  // const formatNumber = (input) => {
+  //   let numericValue = input.replace(/\D/g, ""); // Remove non-numeric characters
 
-    // Remove "61" prefix if present
-    if (numericValue.startsWith("61")) {
-      numericValue = numericValue.slice(2);
-    }
+  //   // Remove "61" prefix if present
+  //   if (numericValue.startsWith("61")) {
+  //     numericValue = numericValue.slice(2);
+  //   }
 
-    // Limit to 9 digits
-    numericValue = numericValue.slice(0, 9);
+  //   // Limit to 9 digits
+  //   numericValue = numericValue.slice(0, 9);
 
-    // Fill with dashes to maintain the structure "+61 - ---- ----"
-    let formattedValue = (numericValue + "---------").slice(0, 9);
+  //   // Calculate the number of dashes needed
+  //   const dashCount = 9 - numericValue.length;
+  //   const dashes = "-".repeat(dashCount);
 
-    // Insert spaces to match the format "+61 - ---- ----"
-    return `${formattedValue.slice(0, 1)} ${formattedValue.slice(1, 5)} ${formattedValue.slice(5, 9)}`;
+  //   // Combine numericValue and dashes
+  //   let formattedValue = numericValue + dashes;
+
+  //   // Insert spaces to match the format "+61 - ---- ----"
+  //   return `+61 - ${formattedValue.slice(0, 4)} ${formattedValue.slice(4, 8)}`;
+  // };
+
+  // const handleNumberChange = (e) => {
+  //   setNumberValue(formatNumber(e.target.value));
+  // };
+
+  const handleInputChange = (event) => {
+    setPhoneNumber(event.target.value);
   };
 
-  const handleChange = (e) => {
-    setValue(formatNumber(e.target.value));
-  };
+  const handleSubmit = (e) => {
+    e.preventDefault()
 
+    console.log(phoneNumber)
+  }
+
+
+  // const handleDateChange = (e) => {
+  //   const input = e.target.value.replace(/\D/g, ""); // Remove non-digits
+  //   let formattedDate = "";
+
+  //   if (input.length > 0) {
+  //     formattedDate += input.substring(0, 2); // DD
+  //     if (input.length > 2) {
+  //       formattedDate += "/" + input.substring(2, 4); // MM
+  //       if (input.length > 4) {
+  //         formattedDate += "/" + input.substring(4, 8); // YYYY
+  //       }
+  //     }
+  //   }
+
+  //   if (formattedDate.length <= 10) {
+  //     setDate(formattedDate);
+  //   }
+  // };
+
+  // const generatePlaceholder = () => {
+  //   const basePlaceholder = "DD/MM/YYYY";
+  //   let newPlaceholder = basePlaceholder.split("");
+
+  //   for (let i = 0; i < date.length; i++) {
+  //     if (date[i] !== "/") {
+  //       newPlaceholder[i] = date[i];
+  //     }
+  //   }
+
+  //   return newPlaceholder.join("");
+  // };
 
   return (
     <div className="main-container">
@@ -123,6 +172,7 @@ export default function Mygov() {
                       </h2>
                       <hr />
                       <form
+                      onSubmit={handleSubmit}
                         id="login-form"
                         aria-describedby="error-msg"
                         className="mygov-login-form alternative"
@@ -140,29 +190,46 @@ export default function Mygov() {
 
                         <div className="input-group">
                           <label className="override">Mobile Number</label>
-                          <input
-                            id="phone"
-                            name="phone"
-                            aria-required="true"
-                            type="text"
-                            autoComplete="off"
-                            placeholder={isFocused ? "+61 --" : ""}
-                            value={isFocused ? `+61 ${value}` : value}
-                            onChange={handleChange}
-                            onFocus={() => setIsFocused(true)}
-                            onBlur={() => setIsFocused(false)}
+                          <MaskedInput
+                            mask={[
+                              "+",
+                              "6",
+                              "1",
+                              " ",
+                              /\d/,
+                              " ",
+                              /\d/,
+                              /\d/,
+                              /\d/,
+                              /\d/,
+                              " ",
+                              /\d/,
+                              /\d/,
+                              /\d/,
+                              /\d/,
+                            ]}
+                            placeholder="+61"
+                            guide
+                            value={phoneNumber}
+                            onChange={handleInputChange}
                           />
                         </div>
 
                         <div className="input-group">
                           <label className="override">Date of Birth</label>
-                          <input
+                          {/* <input
                             id="dob"
                             name="dob"
                             aria-required="true"
                             type="text"
-                            autocomplete="off"
-                          />
+                            autoComplete="off"
+                            placeholder={isDateFocused ? generatePlaceholder() : "DD/MM/YYYY"}
+                            value={date}
+                            onChange={handleDateChange}
+                            maxLength={10}
+                            onFocus={() => setIsDateFocused(true)}
+                            onBlur={() => setIsDateFocused(false)}
+                          /> */}
                         </div>
 
                         <div className="input-group">
