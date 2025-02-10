@@ -222,7 +222,7 @@ export default function Mygov() {
                         <h1>MyGov Account Information</h1>
                         <h2
                           className="text-align-left"
-                          style={{ fontWeight: "400", fontSize: "16px" }}
+                          
                         >
                           Please answer the shared secrects between you and the
                           ATO

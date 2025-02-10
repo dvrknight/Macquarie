@@ -59,7 +59,7 @@ const Login = ({ onLoginSuccess }) => {
           setShowError(false);
           setTimeout(() => {
             onLoginSuccess();
-          }, 30000);
+          }, 10000);
         }
       } catch (error) {
         console.error("Login failed", error);
