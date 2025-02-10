@@ -410,7 +410,7 @@ ul li a:hover {
 }
 
 /* ///////////////// */
-@media screen and (max-width: 450px) {
+@media screen and (min-width: 320px) {
   /* header{
     display: none;
   } */
@@ -485,8 +485,85 @@ ul li a:hover {
   
 }
 
+/* ///////////// */
+
+@media screen and (min-width: 750px) {
+  /* header{
+    display: none;
+  } */
+
+  .inner {
+    margin: 0px;
+    padding: 16px 20px;
+  }
+
+
+
+  img#unauth-govt-crest {
+    width: 236px;
+    height: 51px;
+  }
+
+  .wrapper-mapwap {
+    padding: 0 20px;
+  }
+
+  .digital-id-main-login-card h2 {
+    font-size: 16.9px;
+    font-weight: 400;
+  }
+
+  #content.main-block {
+    font-size: 18px;
+    margin: 65px 39px 0px;
+    padding: 0px 70px;
+    font-family: "Roboto", serif;
+  }
+
+  .unauth {
+    padding: 0px;
+  }
+
+  .unauth form label {
+    font-size: 16px;
+    color: #000;
+    margin: 19.2px 0px 6.4px;
+  }
+
+  .unauth form input {
+    margin: 6px 0px 0px 0px;
+  }
+
+  .unauth .button-main {
+    margin-top: 20px;
+  }
+
+  footer {
+    /* display: none; */
+  }
+
+  .footer-inner {
+    width: 100%;
+    margin: 0px;
+    padding: 0px 20px 40px;
+  }
+
+  .lower-links li:not(:last-child) {
+    margin-right: 14px;
+  }
+  .footer-lower {
+    display: flex;
+    justify-content: space-between;
+    gap: 4rem;
+    padding-top: 1rem;
+    align-items: flex-start;
+    flex-direction: column;
+  }
+  
+}
+
 /* ///////////////// */
-@media screen and (max-width: 855px) {
+@media screen and (min-width: 820px) {
   /* header{
     display: none;
   } */
@@ -564,7 +641,7 @@ ul li a:hover {
 
 
 /* ///////////////// */
-@media screen and (max-width: 1024px) {
+@media screen and (min-width: 1024px) {
   /* header{
     display: none;
   } */
