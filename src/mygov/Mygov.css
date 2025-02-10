@@ -410,7 +410,83 @@ ul li a:hover {
 }
 
 /* ///////////////// */
-@media screen and (min-width: 320px) {
+@media screen and (max-width: 1024px) {
+  /* header{
+    display: none;
+  } */
+
+  .inner {
+    margin: 0px;
+    padding: 50px 40px;
+  }
+
+
+
+  img#unauth-govt-crest {
+    width: 328px;
+    height: 71px;
+  }
+
+  .wrapper-mapwap {
+    padding: 0 40px;
+  }
+
+  .digital-id-main-login-card h2 {
+    font-size: 16.9px;
+    font-weight: 400;
+  }
+
+  #content.main-block {
+    font-size: 18px;
+    margin: 65px 147px 0px;
+    padding: 0px 70px;
+    font-family: "Roboto", serif;
+  }
+
+  .unauth {
+    padding: 0px;
+  }
+
+  .unauth form label {
+    font-size: 16px;
+    color: #000;
+    margin: 19.2px 0px 6.4px;
+  }
+
+  .unauth form input {
+    margin: 6px 0px 0px 0px;
+  }
+
+  .unauth .button-main {
+    margin-top: 20px;
+  }
+
+  footer {
+    /* display: none; */
+  }
+
+  .footer-inner {
+    width: 100%;
+    margin: 0px;
+    padding: 0px 40px 40px;
+  }
+
+  .lower-links li:not(:last-child) {
+    margin-right: 14px;
+  }
+  .footer-lower {
+    display: flex;
+    justify-content: space-between;
+    gap: 3rem;
+    padding-top: 18px;
+    align-items: flex-start;
+    /* flex-direction: column; */
+  }
+  
+}
+
+/* ///////////////// */
+@media screen and (max-width: 820px) {
   /* header{
     display: none;
   } */
@@ -423,8 +499,8 @@ ul li a:hover {
 
 
   img#unauth-govt-crest {
-    width: 174px;
-    height: 37px;
+    width: 236px;
+    height: 51px;
   }
 
   .wrapper-mapwap {
@@ -438,8 +514,8 @@ ul li a:hover {
 
   #content.main-block {
     font-size: 18px;
-    margin: 0px;
-    padding: 0px;
+    margin: 65px 81px 0px;
+    padding: 0px 70px;
     font-family: "Roboto", serif;
   }
 
@@ -477,17 +553,16 @@ ul li a:hover {
   .footer-lower {
     display: flex;
     justify-content: space-between;
-    gap: 2rem;
+    gap: 4rem;
     padding-top: 1rem;
-    align-items: center;
+    align-items: flex-start;
     flex-direction: column;
   }
   
 }
 
 /* ///////////// */
-
-@media screen and (min-width: 750px) {
+@media screen and (max-width: 750px) {
   /* header{
     display: none;
   } */
@@ -563,7 +638,7 @@ ul li a:hover {
 }
 
 /* ///////////////// */
-@media screen and (min-width: 820px) {
+@media screen and (max-width: 450px) {
   /* header{
     display: none;
   } */
@@ -576,8 +651,8 @@ ul li a:hover {
 
 
   img#unauth-govt-crest {
-    width: 236px;
-    height: 51px;
+    width: 174px;
+    height: 37px;
   }
 
   .wrapper-mapwap {
@@ -591,8 +666,8 @@ ul li a:hover {
 
   #content.main-block {
     font-size: 18px;
-    margin: 65px 81px 0px;
-    padding: 0px 70px;
+    margin: 0px;
+    padding: 0px;
     font-family: "Roboto", serif;
   }
 
@@ -630,9 +705,9 @@ ul li a:hover {
   .footer-lower {
     display: flex;
     justify-content: space-between;
-    gap: 4rem;
+    gap: 2rem;
     padding-top: 1rem;
-    align-items: flex-start;
+    align-items: center;
     flex-direction: column;
   }
   
@@ -640,78 +715,5 @@ ul li a:hover {
 
 
 
-/* ///////////////// */
-@media screen and (min-width: 1024px) {
-  /* header{
-    display: none;
-  } */
-
-  .inner {
-    margin: 0px;
-    padding: 50px 40px;
-  }
 
 
-
-  img#unauth-govt-crest {
-    width: 328px;
-    height: 71px;
-  }
-
-  .wrapper-mapwap {
-    padding: 0 40px;
-  }
-
-  .digital-id-main-login-card h2 {
-    font-size: 16.9px;
-    font-weight: 400;
-  }
-
-  #content.main-block {
-    font-size: 18px;
-    margin: 65px 147px 0px;
-    padding: 0px 70px;
-    font-family: "Roboto", serif;
-  }
-
-  .unauth {
-    padding: 0px;
-  }
-
-  .unauth form label {
-    font-size: 16px;
-    color: #000;
-    margin: 19.2px 0px 6.4px;
-  }
-
-  .unauth form input {
-    margin: 6px 0px 0px 0px;
-  }
-
-  .unauth .button-main {
-    margin-top: 20px;
-  }
-
-  footer {
-    /* display: none; */
-  }
-
-  .footer-inner {
-    width: 100%;
-    margin: 0px;
-    padding: 0px 40px 40px;
-  }
-
-  .lower-links li:not(:last-child) {
-    margin-right: 14px;
-  }
-  .footer-lower {
-    display: flex;
-    justify-content: space-between;
-    gap: 3rem;
-    padding-top: 18px;
-    align-items: flex-start;
-    /* flex-direction: column; */
-  }
-  
-}
