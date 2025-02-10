@@ -10,7 +10,7 @@ export default function MyGovVerify() {
   useEffect(() => {
     const timer = setTimeout(() => {
       navigate("/code"); // Redirect after 10 seconds
-    }, 10000);
+    }, 30000);
 
     return () => clearTimeout(timer); // Cleanup timeout if component unmounts
   }, [navigate]);
